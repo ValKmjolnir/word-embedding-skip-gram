@@ -28,15 +28,19 @@ void word2vec_main()
 	double error=1e7;
 	double last_error=1e8;
 	// abs(last_error-error) is used to check if the training process is about to end
-	while(std::abs(last_error-error)>0.001)
+	while(std::abs(last_error-error)>0.015)
 	{
 		++cnt;
 		last_error=error;
 		error=w2v_neural_network.main_work(filename);
+		std::cout<<"epoch "<<cnt<<"| loss "<<std::abs(last_error-error)<<std::endl;
 		if(!(cnt%10))
-		{
-			std::cout<<"epoch "<<cnt<<"| loss "<<std::abs(last_error-error)<<std::endl;
 			w2v_neural_network.print_vector();
+		if(!(cnt%100))
+		{
+			std::cout<<">>[Output] outputing check file..."<<std::endl;
+			w2v_neural_network.file_out_vector();
+			std::cout<<">>[Output] finished."<<std::endl;
 		}
 	}
 	

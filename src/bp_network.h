@@ -106,7 +106,7 @@ void word2vec::initializing()
 	// get the total number of words
 	// and the input is one-hot
 	
-	HNUM=8;// test size of hidden layer
+	HNUM=64;// test size of hidden layer
 	
 	if(!INUM)
 	{
@@ -288,7 +288,7 @@ void word2vec::print_vector()
 	{
 		lib.print_word(i);
 		std::cout<<": ";
-		for(int j=0;j<HNUM;++j)
+		for(int j=0;j<HNUM/8;++j)
 			std::cout<<hidden[j].w[i]<<" ";
 		std::cout<<std::endl;
 	}
