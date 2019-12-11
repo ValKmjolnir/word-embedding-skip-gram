@@ -40,3 +40,8 @@ class word2vec;
 word2vec will help you __calculate each word's embedding vector__ and __output information on the screen and into the file__ .
 
 default input file's name is __"trainingset.txt"__ ,you can change it if you like in __word_embedding.cpp__ .
+
+# the most important thing
+If you want to change the length of vectors,please go to __bp_network.h__ and find this function: __void word2vec::initializing()__
+
+then change the __HNUM__ , this parameter decides the length of vectors.
