@@ -44,4 +44,4 @@ default input file's name is __"trainingset.txt"__ ,you can change it if you lik
 # the most important thing
 If you want to change the length of vectors,please go to __bp_network.h__ and find this function: __void word2vec::initializing()__
 
-then change the __HNUM__ , this parameter decides the length of vectors.
+then change the __HNUM__  at the beginning, this parameter decides the length of vectors.
