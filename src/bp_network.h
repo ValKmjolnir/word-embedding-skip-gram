@@ -1,8 +1,9 @@
-#ifndef __BP_NETWORK_H__
-#define __BP_NETWORK_H__
+#pragma once
 
-struct neuron
-{
+#include <cstring>
+#include <sstream>
+
+struct neuron {
 	double in;
 	double out;
 	double *w;
@@ -34,38 +35,38 @@ double diffsigmoid(double x)
 	return x*(1-x);
 }
 
-class word2vec
-{
-	private:
-		int* array;
-		// array[] gets sequence of words' place
-		std::list<int> wordlist;
-		// wordlist is used to get all words' place in a sequence and transport all members into array[]
-		
-		/*
-			INUM: number of input neurons
-			HNUM: number of hidden layer neurons
-			ONUM: number of output layer neurons
-			*expect: expect outputs
-		*/
-		int INUM;
-		int HNUM;
-		int ONUM;
-		double* input;
-		neuron* hidden;
-		neuron* output;
-		double* expect;
-	public:
-		word2vec();
-		~word2vec();
-		void initializing();
-		double main_work(std::string);
-		double pre_calc();
-		double calc(int,int);
-		// calc(int,int) is the main calculation process,
-		// including forward and backward propagation and weight-bia-updating process
-		void print_vector();
-		void file_out_vector();
+class word2vec {
+private:
+	int* array;
+	// array[] gets sequence of words' place
+	std::list<int> wordlist;
+	// wordlist is used to get all words' place in a sequence and transport all members into array[]
+	
+	/*
+		INUM: number of input neurons
+		HNUM: number of hidden layer neurons
+		ONUM: number of output layer neurons
+		*expect: expect outputs
+	*/
+	int INUM;
+	int HNUM;
+	int ONUM;
+	double* input;
+	neuron* hidden;
+	neuron* output;
+	double* expect;
+
+public:
+	word2vec();
+	~word2vec();
+	void initializing();
+	double main_work(std::string);
+	double pre_calc();
+	double calc(int,int);
+	// calc(int,int) is the main calculation process,
+	// including forward and backward propagation and weight-bia-updating process
+	void print_vector();
+	void file_out_vector();
 };
 
 word2vec::word2vec()
@@ -314,5 +315,3 @@ void word2vec::file_out_vector()
 }
 
 word2vec w2v_neural_network;
-
-#endif

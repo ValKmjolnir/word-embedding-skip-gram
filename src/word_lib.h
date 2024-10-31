@@ -1,21 +1,20 @@
-#ifndef __WORD_LIB_H__
-#define __WORD_LIB_H__
+#pragma once
 
-class wordlib
-{
-	private:
-		std::list<std::string> dictionary;
-	public:
-		wordlib();
-		~wordlib();
-		int get_place(std::string);
-		int lib_size();
-		bool search(std::string);
-		void add_word(std::string);
-		void add_word_from_file(std::string);
-		void print_lib();
-		void print_word(int);
-		std::string get_word(int);
+class wordlib {
+private:
+	std::list<std::string> dictionary;
+
+public:
+	wordlib();
+	~wordlib();
+	int get_place(std::string);
+	int lib_size();
+	bool search(std::string);
+	void add_word(std::string);
+	void add_word_from_file(std::string);
+	void print_lib();
+	void print_word(int);
+	std::string get_word(int);
 };
 
 wordlib::wordlib()
@@ -149,5 +148,3 @@ std::string wordlib::get_word(int place)
 }
 
 wordlib lib;
-
-#endif

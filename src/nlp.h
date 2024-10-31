@@ -1,5 +1,4 @@
-#ifndef __NLP_H__
-#define __NLP_H__
+#pragma once
 
 #include <iostream>
 #include <fstream>
@@ -12,4 +11,3 @@
 #include "word_lib.h"
 #include "bp_network.h"
 
-#endif
